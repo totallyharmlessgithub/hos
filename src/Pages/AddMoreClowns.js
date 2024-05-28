@@ -2,10 +2,6 @@ import { useState } from "react";
 import React from "react";
 import { createClient } from "@supabase/supabase-js";
 export const AddMoreClowns = () => {
-  const getTime = () => {
-    const currentDateTime = new Date();
-    return currentDateTime.toLocaleString();
-  };
   const generateId = () => {
     var randomString = "";
     for (let i = 0; i < 6; i++) {
@@ -16,7 +12,6 @@ export const AddMoreClowns = () => {
   };
   const [clownData, setClownData] = useState({
     id: 0,
-    created_at: getTime(),
     roll: "",
     name: "",
     clown_pic: "https://wallpapercave.com/wp/wp7363183.jpg",
@@ -67,19 +62,6 @@ export const AddMoreClowns = () => {
             id="id"
             name="id"
             value={clownData.socials.id}
-            onChange={handleChange}
-          />
-        </div>
-        <br />
-
-        <div className="w-full justify-items-stretch space-x-5">
-          <label htmlFor="created_at">Created At:</label>
-          <input
-            className="border border-red-500 rounded-lg p-2"
-            type="text"
-            id="created_at"
-            name="created_at"
-            value={getTime()}
             onChange={handleChange}
           />
         </div>
