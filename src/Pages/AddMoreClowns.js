@@ -11,7 +11,6 @@ export const AddMoreClowns = () => {
     return randomString;
   };
   const [clownData, setClownData] = useState({
-    id: 0,
     roll: "",
     name: "",
     clown_pic: "https://wallpapercave.com/wp/wp7363183.jpg",
@@ -54,18 +53,6 @@ export const AddMoreClowns = () => {
   return (
     <div className="bg-white justify-evenly items-center flex space-y-3 align-middle mx-80 mt-24 text-black rounded-2xl font-Carnivalee text-2xl">
       <div className="flex flex-col space-y-3 p-5">
-        <div className="space-x-5">
-          <label htmlFor="id">ID:</label>
-          <input
-            className="border border-red-500 rounded-lg p-2"
-            type="number"
-            id="id"
-            name="id"
-            value={clownData.socials.id}
-            onChange={handleChange}
-          />
-        </div>
-        <br />
 
         <div className="space-x-5">
           <label htmlFor="roll">Roll Number:</label>
