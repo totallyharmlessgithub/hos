@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState,useEffect } from "react";
 import logo from "../Images/logo.png";
 import glb from "../Images/glb.png";
 import border from "../Images/border.png";
@@ -44,12 +44,30 @@ export const Profile = () => {
   const [desc,setDesc] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const clown = location.state.clown;
+  const [clown,setClown] = useState();
   const memes = [
     "https://www.youtube.com/embed/1K5miD_y1-k",
     "https://www.youtube.com/watch?v=oUhUyh9fA2o",
     "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
   ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = new URL(window.location.href);
+      const param = url.searchParams.get('id');
+      console.log("THIS WORKS")
+      const supabase = createClient(process.env.REACT_APP_SUPAURL, process.env.REACT_APP_SUPAKEY);
+      const { data, error } = await supabase
+      .from('clowns')
+      .select()
+      .eq('profile_id', param);
+      console.log(data[0])
+      setClown(data[0])
+    };
+    fetchData();
+  }, []);
+
+
   const submitReport = async () => {
     window.open(memes[Math.floor(Math.random() * memes.length)], "_blank");
     const supabase = createClient(
@@ -72,8 +90,8 @@ export const Profile = () => {
       .update({ rating: newRating })
       .eq("clown_id", clown.clown_id);
   };
-  return (
-    <div>
+  if(clown!==undefined){
+    return (<div>
       <BrowserView>
         <div className="p-2 flex flex-row">
           <div
@@ -740,6 +758,9 @@ export const Profile = () => {
           </Tabs>
         </div>
       </MobileView>
-    </div>
-  );
+    </div>)
+  }else{
+    return <></>
+  }
+ 
 };
