@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import { createClient } from "@supabase/supabase-js";
 export const AddMoreClowns = () => {
+  
   const generateId = () => {
     var randomString = "";
     for (let i = 0; i < 6; i++) {
@@ -10,7 +11,16 @@ export const AddMoreClowns = () => {
     } 
     return randomString;
   };
+  const generateProfileId = () => {
+    var randomString = "";
+    for (let i = 0; i < 6; i++) {
+      const randomCharacter = String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+      randomString += randomCharacter;
+    } 
+    return randomString;
+  };
   const [clownData, setClownData] = useState({
+    profile_id: generateProfileId(),
     roll: "",
     name: "",
     clown_pic: "https://wallpapercave.com/wp/wp7363183.jpg",
@@ -48,11 +58,27 @@ export const AddMoreClowns = () => {
     } else {
       setMessage(error);
     }
+    console.log(error)
   };
 
   return (
     <div className="bg-white justify-evenly items-center flex space-y-3 align-middle mx-80 mt-24 text-black rounded-2xl font-Carnivalee text-2xl">
       <div className="flex flex-col space-y-3 p-5">
+
+        <div className="space-x-5">
+          <label htmlFor="profile_id">Profile ID:</label>
+          <input
+            className="border border-red-500 rounded-lg p-2"
+            type="text"
+            id="profile_id"
+            name="profile_id"
+            value={generateProfileId()}
+            onChange={handleChange}
+            disabled
+          />
+        </div>
+        <br />
+
 
         <div className="space-x-5">
           <label htmlFor="roll">Roll Number:</label>
