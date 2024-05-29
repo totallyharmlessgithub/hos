@@ -369,7 +369,7 @@ export const EditMoreClowns = () => {
           onClick={() => updateProfile()}
           className="rounded-tl-lg rounded-br-lg bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 active:bg-red-800 active:shadow-inner transition duration-150 ease-in-out glow-red bg-opacity-40 text-2xl mx-10 mb-5"
         >
-          Update Clown
+          Click Twice to Update Clown
         </button>
         <p className="text-red text-lg">{message}</p>
       </div>
