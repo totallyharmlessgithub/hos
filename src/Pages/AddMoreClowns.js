@@ -17,7 +17,7 @@ export const AddMoreClowns = () => {
     title: "",
     course: "",
     about: "",
-    clown_id: generateId,
+    clown_id: generateId(),
     socials: {},
     contributions: [],
     rating: 0,
