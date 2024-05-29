@@ -108,7 +108,7 @@ export const Profile = () => {
                 src={clown.clown_pic}
                 height={450}
                 width={180}
-                className="absolute rounded-lg top-5 left-2.5"
+                className="absolute rounded-lg top-3 left-2.5"
                 alt="pic"
               />
             </div>
