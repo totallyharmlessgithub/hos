@@ -6,6 +6,6 @@ export const About = (props) => {
     About This Clown
     <img src={pepe} height={70} width={70} alt="pepe" />
   </div>
-  {props.data}</>
+  <div className='mx-auto w-6/12'>{props.data}</div></>
   )
 }
