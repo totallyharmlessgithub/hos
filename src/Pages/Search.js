@@ -60,7 +60,7 @@ export const Search = () => {
         
        
       </div>
-      {clownData!=="undefined"  ? (Object.values(clownData)).map((clown,index)=><div className='w-full justify-center mt-10'><div onClick={()=>navigate("/profile",{ state: { clown: clown }})} className="flex m-auto w-96 flex-col">
+      {clownData!=="undefined"  ? (Object.values(clownData)).map((clown,index)=><div className='w-full justify-center mt-10'><div onClick={()=>navigate("/profile?id="+clown.profile_id)} className="flex m-auto w-96 flex-col">
           <div className="relative">
             <img
               src={border}
@@ -120,7 +120,7 @@ export const Search = () => {
        
       </div>
       <div className='flex flex-col gap-10'>
-      {clownData!=="undefined"  ? (Object.values(clownData)).map((clown,index)=><div className='w-full justify-center mt-10'><div onClick={()=>navigate("/profile",{ state: { clown: clown }})} className="flex m-auto w-96 flex-col">
+      {clownData!=="undefined"  ? (Object.values(clownData)).map((clown,index)=><div className='w-full justify-center mt-10'><div onClick={()=>navigate("/profile?id="+clown.profile_id)} className="flex m-auto w-96 flex-col">
           <div className="relative">
             <img
               src={border}
