@@ -77,7 +77,7 @@ export const Home = () => {
           Trending Clowns <img src={pepe} alt="pepe" />
         </div>
         <div className="flex flex-row pb-20 gap-24 justify-center">
-          {trending!==null ? trending.map((clown)=><div onClick={()=>navigate("/profile",{state:{clown:clown}})} className="flex flex-col">
+          {trending!==null ? trending.map((clown)=><div onClick={()=>navigate("/profile?id=" + clown.profile_id)} className="flex flex-col">
             <div className="relative">
               <img
                 src={border}
@@ -217,7 +217,7 @@ export const Home = () => {
           <img className="w-36 h-24" src={pepe} alt="pepe" />
         </div>
         <div className="flex flex-col pb-20 gap-14 justify-center">
-          {trending!==null?trending.map((clown)=><div onClick={()=>navigate("/profile",{state:{clown:clown}})} className="flex flex-col items-center w-full mx-auto">
+          {trending!==null?trending.map((clown)=><div onClick={()=>navigate("/profile?id=" + clown.profile_id)} className="flex flex-col items-center w-full mx-auto">
             <div className="relative">
               <img
                 src={border}
