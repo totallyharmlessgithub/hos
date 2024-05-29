@@ -3,8 +3,6 @@ import React from "react";
 import { createClient } from "@supabase/supabase-js";
 export const EditMoreClowns = () => {
   const [message,setMessage] = useState();
-  const [id, setId] = useState(0);
-  const [created_at, setCreatedAt] = useState("");
   const [name, setName] = useState("");
   const [clown_pic, setClownPic] = useState("");
   const [title, setTitle] = useState("");
@@ -36,28 +34,25 @@ export const EditMoreClowns = () => {
       .select()
       .eq("roll", roll);
     //empty fields before next search
-    setId(0);
-    setCreatedAt("");
-    setName("");
-    setTitle("");
-    setCourse("");
-    setAbout("");
-    setRating(0);
-    setClownId("");
-    setClownPic("");
-    setTikTok(data[0].socials.TikTok);
-    setYouTube("");
-    setGitHub("");
-    setTwitter("");
-    setEmail("");
-    setTelegram("");
-    setInstagram("");
-    setWhatsApp("");
-    setLinkedIn("");
-    setFacebook("");
+    // setId(0);
+    // setName("");
+    // setTitle("");
+    // setCourse("");
+    // setAbout("");
+    // setRating(0);
+    // setClownId("");
+    // setClownPic("");
+    // setTikTok(data[0].socials.TikTok);
+    // setYouTube("");
+    // setGitHub("");
+    // setTwitter("");
+    // setEmail("");
+    // setTelegram("");
+    // setInstagram("");
+    // setWhatsApp("");
+    // setLinkedIn("");
+    // setFacebook("");
     ////////////////////////
-    setId(data[0].id);
-    setCreatedAt(data[0].created_at);
     setName(data[0].name);
     setTitle(data[0].title);
     setCourse(data[0].course);
@@ -65,7 +60,7 @@ export const EditMoreClowns = () => {
     setRating(data[0].rating);
     setClownId(data[0].clown_id);
     setClownPic(data[0].clown_pic);
-    if (Object.keys(data[0].socials).length !== 0) {
+    // if (Object.keys(data[0].socials).length !== 0) {
       if (data[0].socials.TikTok) {
         setTikTok(data[0].socials.TikTok);
       }
@@ -96,7 +91,7 @@ export const EditMoreClowns = () => {
       if (data[0].socials.Facebook) {
         setFacebook(data[0].socials.Facebook);
       }
-    }
+    // }
   };
 
   const updateProfile = async () =>{
@@ -111,13 +106,12 @@ export const EditMoreClowns = () => {
         temp[capitalizedKey] = nonEmptyVariables[key];
       }
     setSocials(temp)
-
+      console.log(socials)
     const supabase = createClient(
         process.env.REACT_APP_SUPAURL,
         process.env.REACT_APP_SUPAKEY
       );
     const data = {
-        "id": id,
         "name": name,
         "clown_pic": clown_pic,
         "title": title,
@@ -149,31 +143,6 @@ export const EditMoreClowns = () => {
           <button onClick={() => fillValues()} className="p-2">
             Search
           </button>
-        </div>
-        <br />
-        <div className="space-x-5">
-          <label htmlFor="id">ID:</label>
-          <input
-            className="border border-red-500 rounded-lg p-2"
-            type="number"
-            id="id"
-            name="id"
-            value={id}
-            onChange={(e)=>setId(e.target.value)}
-          />
-        </div>
-        <br />
-
-        <div className="w-full justify-items-stretch space-x-5">
-          <label htmlFor="created_at">Created At:</label>
-          <input
-            className="border border-red-500 rounded-lg p-2"
-            type="text"
-            id="created_at"
-            name="created_at"
-            value={created_at}
-            disabled
-          />
         </div>
         <br />
 
@@ -369,7 +338,7 @@ export const EditMoreClowns = () => {
           onClick={() => updateProfile()}
           className="rounded-tl-lg rounded-br-lg bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 shadow-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 active:bg-red-800 active:shadow-inner transition duration-150 ease-in-out glow-red bg-opacity-40 text-2xl mx-10 mb-5"
         >
-          Click Twice to Update Clown
+          Update Clown
         </button>
         <p className="text-red text-lg">{message}</p>
       </div>
