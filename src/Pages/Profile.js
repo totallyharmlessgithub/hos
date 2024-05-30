@@ -446,9 +446,9 @@ export const Profile = () => {
             </div>
           </div>
         </header>
-        <div className="flex flex-col w-screen justify-center space-x-30 scale-90">
-          <div className="flex flex-row">
-            <div className="relative">
+        <div className="flex flex-col w-screen justify-center scale-90">
+          <div className="flex flex-col justify-center place-items-center">
+            <div className="relative px-5">
               <img
                 src={border}
                 alt="border"
@@ -458,15 +458,15 @@ export const Profile = () => {
               />
               <img
                 src={clown.clown_pic}
-                height={440}
-                width={170}
-                className="absolute rounded-lg top-1.5 left-1.5"
+                height={580}
+                width={270}
+                className="absolute rounded-lg top-3.5 left-9 object-fill"
                 alt="pic"
               />
             </div>
 
-            <div className="flex flex-col font-Carnivalee px-5">
-              <p className="text-white text-6xl">{clown.name}</p>
+            <div className="flex flex-col font-Carnivalee px-5 place-items-center">
+              <p className="text-white text-5xl">{clown.name}</p>
               <p className="text-white text-4xl">{clown.title}</p>
               <div className="flex flex-row space-x-2 text-[#ffc372] text-3xl py-3">
                 {Object.keys(clown.socials).map((social) => {
