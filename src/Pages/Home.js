@@ -228,12 +228,14 @@ export const Home = () => {
               />
               <img
                 src={clown.clown_pic}
-                className="absolute rounded-lg top-5 left-2 w-96"
+                height={460}
+                width={360}
+                className="absolute rounded-lg top-4 left-5"
                 alt="pic"
               />
             </div>
             <div className="flex flex-col mt-auto font-Carnivalee">
-              <p className="m-2 p-5 rounded-2xl bg-red-500 text-white text-2xl bg-opacity-50">
+              <p className="m-2 p-5 rounded-2xl bg-red-500 text-white text-3xl bg-opacity-50">
                 {clown.name}
               </p>
               <div className="flex flex-row justify-center">
