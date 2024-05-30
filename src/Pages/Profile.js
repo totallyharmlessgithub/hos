@@ -23,7 +23,7 @@ import {
   ModalContent,
   ChakraProvider,
 } from "@chakra-ui/react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BrowserView, MobileView } from "react-device-detect";
 import ReactStars from "@stack-pulse/react-star-rating";
 import full from "../Images/full.png";
@@ -42,13 +42,15 @@ export const Profile = () => {
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
   const [desc,setDesc] = useState("");
-  const location = useLocation();
   const navigate = useNavigate();
   const [clown,setClown] = useState();
   const memes = [
-    "https://www.youtube.com/embed/1K5miD_y1-k",
-    "https://www.youtube.com/watch?v=oUhUyh9fA2o",
-    "https://www.youtube.com/watch?v=o-YBDTqX_ZU",
+    "https://www.youtube.com/watch?v=wOWVgTwRCJk",
+    "https://www.youtube.com/watch?v=iu-v9B83Nls",
+    "https://www.youtube.com/watch?v=Xyzmv4390Z8",
+    "https://www.youtube.com/watch?v=b9Nd54-Uupw",
+    "https://www.youtube.com/watch?v=5A3dSZtkv3s",
+    "https://www.youtube.com/watch?v=gQuac7eIbD8"
   ];
 
   useEffect(() => {
@@ -443,7 +445,7 @@ export const Profile = () => {
             </div>
           </div>
         </header>
-        <div className="flex flex-col w-screen justify-center space-x-30">
+        <div className="flex flex-col w-screen justify-center space-x-30 scale-90">
           <div className="flex flex-row">
             <div className="relative">
               <img
@@ -455,9 +457,9 @@ export const Profile = () => {
               />
               <img
                 src={clown.clown_pic}
-                height={450}
-                width={180}
-                className="absolute rounded-lg top-5 left-1.5"
+                height={440}
+                width={170}
+                className="absolute rounded-lg top-1.5 left-1.5"
                 alt="pic"
               />
             </div>
@@ -686,7 +688,7 @@ export const Profile = () => {
             </ChakraProvider>
           </div>
         </div>
-        <div className="justify-center  mt-16">
+        <div className="justify-center  mt-16 scale-90">
           <Tabs
             index={tabIndex}
             onChange={(index) => setTabIndex(index)}
