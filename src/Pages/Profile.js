@@ -57,14 +57,15 @@ export const Profile = () => {
     const fetchData = async () => {
       const url = new URL(window.location.href);
       const param = url.searchParams.get('id');
-      console.log("THIS WORKS")
       const supabase = createClient(process.env.REACT_APP_SUPAURL, process.env.REACT_APP_SUPAKEY);
       const { data, error } = await supabase
       .from('clowns')
       .select()
       .eq('profile_id', param);
-      console.log(data[0])
       setClown(data[0])
+      if(data.length===0){
+        navigate("/")
+      }
     };
     fetchData();
   }, []);
